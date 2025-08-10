@@ -11,7 +11,4 @@ export default defineConfig({
     assetsDir: "assets",
     sourcemap: false,
   },
-  define: {
-    __IS_PROD__: JSON.stringify(true),
-  },
 });
