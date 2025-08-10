@@ -1,0 +1,62 @@
+import { NOTE_CARD_TYPE_LIST } from "../../../widgets/noteCard/config/const";
+import image from "../../../assets/kotiki-na-avu-240423-07.jpg";
+
+export const NOTE_CARD_MOCK = [
+  {
+    id: 1,
+    description: "Drinking water isn't just about quenching ",
+    type: NOTE_CARD_TYPE_LIST.TEXT,
+    idication: "1",
+  },
+  {
+    id: 2,
+    description: "quenching your thirst. It plays a cru",
+    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+  },
+  {
+    id: 4,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in about quenching bbbbbbbb ",
+    type: NOTE_CARD_TYPE_LIST.TEXT,
+    idication: "100",
+  },
+  {
+    id: 3,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your ",
+    type: NOTE_CARD_TYPE_LIST.TEXT,
+    idication: "+10",
+  },
+  {
+    id: 5,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your body, and staying properly hydrated is vital ",
+    type: NOTE_CARD_TYPE_LIST.TEXT,
+  },
+  {
+    id: 5,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a cru bbb",
+    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+  },
+  {
+    id: 6,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in  in maintaining the a bbbbbbbbb",
+    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+  },
+  {
+    id: 7,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your body a bbbbbbbbb",
+    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+  },
+];

@@ -1,0 +1,61 @@
+.noteCard {
+  &__inputContainer {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 325px;
+    margin: 0 auto;
+  }
+
+  &__textarea {
+    flex: 1;
+    min-height: 38px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 5px 15px;
+    border: 1px solid #000;
+    margin-right: 10px;
+    resize: none;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__input {
+    width: 80px;
+    min-height: 38px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 5px 15px;
+    border: 1px solid #000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  &__button {
+    width: 80px;
+    min-height: 38px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 5px 15px;
+    border: 1px solid #000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgb(212, 212, 212);
+      color: #fff;
+      border: 1px solid rgb(212, 212, 212);
+    }
+  }
+}

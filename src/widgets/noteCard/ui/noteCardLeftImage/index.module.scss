@@ -1,0 +1,67 @@
+.noteCard {
+  &__leftImage {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: -3px;
+
+    &_imageTop {
+      align-items: flex-start;
+    }
+
+    > img {
+      width: 62px;
+      height: 60px;
+      min-width: 62px;
+      min-height: 60px;
+      border-radius: 14px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      object-fit: cover;
+    }
+
+    &Description {
+      &_overflow {
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
+.counter {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  background: rgba(211, 211, 211, 0.027);
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+  line-height: 1;
+  border-radius: 16px;
+  padding: 6px 10px;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  border: 1px solid rgba(187, 187, 187, 0.363);
+
+  &_newPosts {
+    background: linear-gradient(90deg, #068dfb 0%, #3fccff 110%);
+    color: #fff;
+    border: none;
+  }
+}
