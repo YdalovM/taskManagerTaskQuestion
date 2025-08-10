@@ -16,10 +16,18 @@ if (fs.existsSync(indexPath)) {
     'href="/taskManagerTaskQuestion/vite.svg"'
   );
 
-  // Убираем type="module" для IIFE формата
+  // Добавляем meta теги для правильных MIME type
+  const metaTags = `
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">`;
+
+  // Вставляем meta теги после <head>
+  content = content.replace(/<head>/, `<head>${metaTags}`);
+
+  // Убеждаемся, что скрипт имеет type="module"
   content = content.replace(
-    /<script type="module" crossorigin/g,
-    "<script crossorigin"
+    /<script crossorigin src="([^"]*\.js)"/g,
+    '<script type="module" crossorigin src="$1"'
   );
 
   fs.writeFileSync(indexPath, content);
