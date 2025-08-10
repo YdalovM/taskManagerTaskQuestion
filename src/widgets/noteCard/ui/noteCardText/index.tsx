@@ -39,7 +39,7 @@ export default function NoteCardText({
   return (
     <div
       className={cn(styles.noteCard, {
-        [styles.noteCard_textTop]: isTextTop,
+        [styles.noteCard_textTop]: isTextTop || isOverflowCounter,
         [styles.noteCard_overflow]: isOverflowCounter && isIndication,
       })}
     >
