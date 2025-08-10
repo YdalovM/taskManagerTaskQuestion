@@ -16,10 +16,10 @@ if (fs.existsSync(indexPath)) {
     'href="/taskManagerTaskQuestion/vite.svg"'
   );
 
-  // Убираем type="module" для лучшей совместимости с GitHub Pages
+  // Убираем type="module" для IIFE формата
   content = content.replace(
     /<script type="module" crossorigin/g,
-    "<script crossorigin"
+    '<script crossorigin'
   );
 
   fs.writeFileSync(indexPath, content);
