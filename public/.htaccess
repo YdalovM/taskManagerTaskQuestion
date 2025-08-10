@@ -1,0 +1,14 @@
+# MIME types for JavaScript modules
+<FilesMatch "\.js$">
+    Header set Content-Type "application/javascript"
+</FilesMatch>
+
+# MIME types for CSS
+<FilesMatch "\.css$">
+    Header set Content-Type "text/css"
+</FilesMatch>
+
+# MIME types for SVG
+<FilesMatch "\.svg$">
+    Header set Content-Type "image/svg+xml"
+</FilesMatch>
