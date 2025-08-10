@@ -20,29 +20,18 @@ yarn preview
 
 ## Настройка GitHub Pages
 
-### Автоматический деплой (рекомендуется)
+### Автоматический деплой
 
 1. Убедитесь, что ваш репозиторий находится на GitHub
 2. Перейдите в Settings → Pages
 3. В разделе "Source" выберите "GitHub Actions"
 4. При каждом пуше в ветку `main` приложение будет автоматически деплоиться
 
-### Ручной деплой
-
-```bash
-# Установка gh-pages (если еще не установлен)
-yarn add -D gh-pages
-
-# Деплой на GitHub Pages
-yarn deploy
-```
-
 ### Настройка в GitHub
 
 1. Перейдите в Settings → Pages
-2. В разделе "Source" выберите "Deploy from a branch"
-3. Выберите ветку `gh-pages` и папку `/ (root)`
-4. Нажмите "Save"
+2. В разделе "Source" выберите "GitHub Actions"
+3. Нажмите "Save"
 
 После настройки ваше приложение будет доступно по адресу:
 `https://[ваш-username].github.io/taskManagerTaskQuestion/`
