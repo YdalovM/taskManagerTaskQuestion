@@ -14,6 +14,9 @@ yarn dev
 # Сборка для продакшена
 yarn build
 
+# Сборка для GitHub Pages (с исправлением путей)
+yarn build:pages
+
 # Предпросмотр сборки
 yarn preview
 ```
