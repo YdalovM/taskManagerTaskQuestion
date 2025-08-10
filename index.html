@@ -37,6 +37,14 @@
             l.pathname.slice(0, -1) + decoded + l.hash
           );
         }
+
+        // Additional check for direct access to base path
+        if (
+          l.pathname === "/taskManagerTaskQuestion/" ||
+          l.pathname === "/taskManagerTaskQuestion"
+        ) {
+          window.history.replaceState(null, null, "/taskManagerTaskQuestion/");
+        }
       })(window.location);
     </script>
   </head>
