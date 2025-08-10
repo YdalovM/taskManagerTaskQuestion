@@ -1,1 +1,5 @@
-export { NOTE_CARD_BY_TYPE, NOTE_CARD_TYPE_LIST } from "./const";
+export {
+  NOTE_CARD_BY_TYPE,
+  NOTE_CARD_TYPE_LIST,
+  NOTE_CARD_POSITION_IMAGE,
+} from "./const";

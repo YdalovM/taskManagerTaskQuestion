@@ -1,20 +1,22 @@
 import type { PropsWithChildren } from "react";
 import styles from "./index.module.scss";
-import ThreeDots from "../../../../assets/svgs/threeDots.svg?react";
+import cn from "classnames";
 
 export default function NoteCardLayout({
   children,
   onClick,
+  isEdit,
 }: PropsWithChildren<{
   onClick: () => void;
+  isEdit?: boolean;
 }>) {
   return (
-    <div className={styles.noteCardLayout} onClick={onClick}>
-      <div className={styles.noteCardLayout__settings}>
-        <button className={styles.noteCardLayout__settingsButton}>
-          <ThreeDots />
-        </button>
-      </div>
+    <div
+      className={cn(styles.noteCardLayout, {
+        [styles.noteCardLayout_edit]: isEdit,
+      })}
+      onClick={onClick}
+    >
       <div className={styles.noteCardLayout__content}>{children}</div>
     </div>
   );

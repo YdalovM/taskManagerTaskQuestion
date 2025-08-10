@@ -4,11 +4,15 @@ import styles from "./index.module.scss";
 import { getResizeOwerlowBlock } from "../../util/getResizeOwerlowBlock";
 import cn from "classnames";
 import { getLinesWitshElement } from "../../util/getLinesWitshElement";
+import { NoteHeaderSettings, TextArriaEditNote } from "..";
+import NoteIndication from "../noteIndication";
 
 export default function NoteCardLeftImage({
   image,
   description,
   idication,
+  isEdit,
+  setDescription,
 }: INoteCard<"leftImage">) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
@@ -20,7 +24,6 @@ export default function NoteCardLeftImage({
     idication !== "+0" &&
     idication !== "+";
 
-  const isNewPosts = idication?.includes("+");
   useEffect(() => {
     if (contentRef.current) {
       setIsImageTop(getLinesWitshElement(contentRef.current).length > 2);
@@ -31,38 +34,45 @@ export default function NoteCardLeftImage({
         contentRef.current,
         counterRef.current,
         setIsOverflowCounter,
-        220,
+        210,
         2
       );
     }
-  }, [description, idication]);
+  }, [description, idication, isEdit]);
 
   return (
-    <div
-      className={cn(styles.noteCard__leftImage, {
-        [styles.noteCard__leftImage_imageTop]: isImageTop,
-      })}
-    >
-      {image}
+    <>
+      {!isEdit && <NoteHeaderSettings />}
       <div
-        ref={contentRef}
-        className={cn(styles.noteCard__leftImageDescription, {
-          [styles.noteCard__leftImageDescription_overflow]:
-            isOverflowCounter && isIndication,
+        className={cn(styles.noteCard__leftImage, {
+          [styles.noteCard__leftImage_imageTop]: isImageTop,
+          [styles.noteCard_edit]: isEdit,
         })}
       >
-        {description}
+        {image}
+        {isEdit ? (
+          <TextArriaEditNote
+            description={description}
+            setDescription={setDescription || (() => {})}
+            isEdit={isEdit}
+            setIsImageTop={setIsImageTop}
+          />
+        ) : (
+          <div
+            ref={contentRef}
+            className={cn(styles.noteCard__leftImageDescription, {
+              [styles.noteCard__leftImageDescription_overflow]:
+                isOverflowCounter && isIndication,
+            })}
+          >
+            {description}
+          </div>
+        )}
+
+        {!isEdit && (
+          <NoteIndication counterRef={counterRef} idication={idication || ""} />
+        )}
       </div>
-      {isIndication && (
-        <div
-          ref={counterRef}
-          className={cn(styles.counter, {
-            [styles.counter_newPosts]: isNewPosts,
-          })}
-        >
-          {idication}
-        </div>
-      )}
-    </div>
+    </>
   );
 }

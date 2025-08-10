@@ -1,1 +1,1 @@
-export type { INoteCardFull, TNoteCard } from "./types";
+export type { INoteCardFull, TNoteCard, TNoteCardType } from "./types";

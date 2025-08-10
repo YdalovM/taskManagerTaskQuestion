@@ -11,3 +11,8 @@ export const NOTE_CARD_TYPE_LIST = {
   LEFT_IMAGE: "leftImage",
   FULL_IMAGE: "fullImage",
 } as const;
+
+export const NOTE_CARD_POSITION_IMAGE = {
+  TOP: "top",
+  BOTTOM: "bottom",
+} as const;
