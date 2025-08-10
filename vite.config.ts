@@ -5,4 +5,11 @@ import svgr from "vite-plugin-svgr";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  base:
+    process.env.NODE_ENV === "production" ? "/taskManagerTaskQuestion/" : "/",
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    sourcemap: false,
+  },
 });
