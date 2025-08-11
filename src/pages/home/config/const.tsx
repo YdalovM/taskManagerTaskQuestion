@@ -1,7 +1,9 @@
 import { NOTE_CARD_TYPE_LIST } from "../../../widgets/noteCard/config/const";
+import type { INoteCardFull } from "../../../widgets/noteCard/model";
+
 import image from "../../../assets/kotiki-na-avu-240423-07.jpg";
 
-export const NOTE_CARD_MOCK = [
+export const NOTE_CARD_MOCK: INoteCardFull[] = [
   {
     id: 1,
     description: "Drinking water isn't just about quenching ",
@@ -58,5 +60,21 @@ export const NOTE_CARD_MOCK = [
     type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
+  },
+  {
+    id: 8,
+    description: "Drinking water isn't just about quenching aaa bbbb",
+    type: NOTE_CARD_TYPE_LIST.FULL_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+    positionImage: "TOP",
+  },
+  {
+    id: 9,
+    description: "Drinking water isn't just about quenching aaa bbbb",
+    type: NOTE_CARD_TYPE_LIST.FULL_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+    positionImage: "BOTTOM",
   },
 ];

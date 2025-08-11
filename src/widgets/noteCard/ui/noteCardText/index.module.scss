@@ -10,30 +10,38 @@
   &_textTop {
     padding: 0 0;
   }
-}
 
-.counter {
-  position: absolute;
-  bottom: 10px;
-  right: 16px;
-  background: rgba(211, 211, 211, 0.027);
-  font-size: 12px;
-  color: #666;
-  font-weight: 400;
-  line-height: 1;
-  border-radius: 16px;
-  padding: 5.6px 10px;
-  width: max-content;
-  height: max-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  border: 1px solid rgba(187, 187, 187, 0.363);
+  &__inputContainer {
+    width: calc(100% - 2px);
+    min-height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-  &_newPosts {
-    background: linear-gradient(90deg, #068dfb 0%, #3fccff 110%);
-    color: #fff;
+  &_edit {
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: transparent;
+    color: #666;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+    border-radius: 12px;
     border: none;
+    outline: none;
+    padding: 16px;
+    width: 100%;
+    height: calc(100% - 2px);
+    min-height: 72px;
+    border-radius: 26px;
+    resize: none;
+    font-size: 14px;
+    line-height: 19px;
+    background-color: #fff;
+    margin-bottom: 4px;
   }
 }

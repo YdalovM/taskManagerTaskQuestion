@@ -4,10 +4,15 @@ import styles from "./index.module.scss";
 import cn from "classnames";
 import { getResizeOwerlowBlock } from "../../util/getResizeOwerlowBlock";
 import { getLinesWitshElement } from "../../util";
+import { NoteHeaderSettings } from "..";
+import NoteIndication from "../noteIndication";
+import { TextArriaEditNote } from "..";
 
 export default function NoteCardText({
   description,
   idication,
+  isEdit,
+  setDescription,
 }: INoteCard<"text">) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
@@ -18,8 +23,6 @@ export default function NoteCardText({
     idication !== "0" &&
     idication !== "+0" &&
     idication !== "+";
-
-  const isNewPosts = idication?.includes("+");
 
   useEffect(() => {
     if (contentRef.current) {
@@ -34,28 +37,34 @@ export default function NoteCardText({
         1
       );
     }
-  }, [description, idication]);
+  }, [description, idication, isEdit]);
 
   return (
-    <div
-      className={cn(styles.noteCard, {
-        [styles.noteCard_textTop]: isTextTop || isOverflowCounter,
-        [styles.noteCard_overflow]: isOverflowCounter && isIndication,
-      })}
-    >
-      <div ref={contentRef} className={styles.noteCard__text}>
-        {description}
+    <>
+      {!isEdit && <NoteHeaderSettings />}
+      <div
+        className={cn(styles.noteCard, {
+          [styles.noteCard_textTop]: isTextTop || isOverflowCounter,
+          [styles.noteCard_edit]: isEdit,
+          [styles.noteCard_overflow]: isOverflowCounter && isIndication,
+        })}
+      >
+        {isEdit ? (
+          <TextArriaEditNote
+            description={description}
+            setDescription={setDescription || (() => {})}
+            isEdit={isEdit}
+          />
+        ) : (
+          <div ref={contentRef} className={styles.noteCard__text}>
+            {description}
+          </div>
+        )}
+
+        {!isEdit && (
+          <NoteIndication counterRef={counterRef} idication={idication || ""} />
+        )}
       </div>
-      {isIndication && (
-        <div
-          ref={counterRef}
-          className={cn(styles.counter, {
-            [styles.counter_newPosts]: isNewPosts,
-          })}
-        >
-          {idication}
-        </div>
-      )}
-    </div>
+    </>
   );
 }

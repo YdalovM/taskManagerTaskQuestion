@@ -1,61 +1,112 @@
 .noteCard {
-  &__inputContainer {
+  position: relative;
+  max-width: 345px;
+
+  &_edit {
+    margin-top: 50px;
+  }
+
+  &__editContainer {
+    max-width: 345px;
+    width: 310px;
+
     display: flex;
+    padding: 14px 14px 38px 20px;
     gap: 10px;
-    width: 100%;
-    max-width: 325px;
-    margin: 0 auto;
+    height: 60%;
+    top: -52px;
+    background: white;
+    position: absolute;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    justify-content: space-between;
   }
 
-  &__textarea {
-    flex: 1;
-    min-height: 38px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 5px 15px;
-    border: 1px solid #000;
-    margin-right: 10px;
-    resize: none;
-    overflow: hidden;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    &:focus {
-      outline: none;
-    }
+  &__editButtonContainer {
+    display: flex;
+    gap: 24px;
   }
 
-  &__input {
-    width: 80px;
-    min-height: 38px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 5px 15px;
-    border: 1px solid #000;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  &__editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid #8181816e;
+    padding: 4px;
   }
 
-  &__button {
-    width: 80px;
-    min-height: 38px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 5px 15px;
-    border: 1px solid #000;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+  &__editButtonSave {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 12px;
+    background: linear-gradient(90deg, #068dfb 0%, #3fccff 110%);
+  }
 
-    &:hover {
-      background-color: rgb(212, 212, 212);
-      color: #fff;
-      border: 1px solid rgb(212, 212, 212);
+  &__editButtonClose {
+    cursor: pointer;
+    height: 24px;
+  }
+
+  &__editModalPanel {
+    display: flex;
+    gap: 25px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: -90px;
+    right: 60px;
+    border: 1px solid #c6c6c6;
+
+    &Button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: none;
+      position: relative;
+
+      &:last-child {
+        > svg {
+          height: 34px;
+          width: 34px;
+        }
+      }
+
+      > svg {
+        height: 24px;
+        width: 24px;
+      }
+
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -13px;
+        top: -42%;
+        bottom: 0;
+        width: 0.5px;
+        height: 185%;
+        background-color: #c6c6c6;
+      }
     }
   }
 }

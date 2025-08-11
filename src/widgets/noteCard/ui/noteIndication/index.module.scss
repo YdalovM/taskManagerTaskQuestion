@@ -1,0 +1,36 @@
+.counter {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  background: rgba(211, 211, 211, 0.027);
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+  line-height: 1;
+  border-radius: 16px;
+  padding: 6px 10px 6px 10px;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -2px;
+
+  z-index: 1;
+  border: 1px solid rgba(187, 187, 187, 0.363);
+
+  &_newPosts {
+    background: linear-gradient(90deg, #068dfb 0%, #3fccff 110%);
+    color: #fff;
+    border: none;
+  }
+
+  &_image {
+    margin-bottom: -3px;
+    margin-right: -2px;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    border: none;
+    color: #fff;
+  }
+}
