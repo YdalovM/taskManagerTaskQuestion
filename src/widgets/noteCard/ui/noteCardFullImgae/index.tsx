@@ -14,7 +14,8 @@ export default function NoteCardFullImage({
   positionImage = "TOP",
   isEdit,
   setDescription,
-}: INoteCard<"fullImage">) {
+  setIsEdit,
+}: INoteCard<"fullImage"> & { setIsEdit: (isEdit: boolean) => void }) {
   const counterRef = useRef<HTMLDivElement>(null);
   const isImageTop = positionImage === "TOP";
   const [isOverflowCounter, setIsOverflowCounter] = useState(false);
@@ -27,7 +28,7 @@ export default function NoteCardFullImage({
         contentRef.current,
         counterRef.current,
         setIsOverflowCounter,
-        292,
+        280,
         1
       );
     }
@@ -35,7 +36,12 @@ export default function NoteCardFullImage({
 
   return (
     <>
-      {!isEdit && <NoteHeaderSettings isImage={isImageTop} />}
+      {!isEdit && (
+        <NoteHeaderSettings
+          isImage={isImageTop}
+          onClick={() => setIsEdit(true)}
+        />
+      )}
       <div
         className={cn(styles.noteCard__fullImage, {
           [styles.noteCard__fullImage_bottom]: !isImageTop,

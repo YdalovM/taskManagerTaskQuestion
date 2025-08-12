@@ -15,16 +15,18 @@ export default function NoteCard({
   image,
   idication,
   positionImage: initialPositionImage = "TOP",
+  gradientBorderType = "none",
 }: INoteCardFull) {
   const [isEdit, setIsEdit] = useState(false);
   const [description, setDescription] = useState(initialDescription);
   const [noteType, setNoteType] = useState(type);
+  const [editType, setEditType] = useState(type);
   const [isEditingType, setIsEditingType] = useState(false);
   const [positionImage, setPositionImage] = useState(initialPositionImage);
   const [editingDescription, setEditingDescription] =
     useState(initialDescription);
 
-  const NoteCardComponent = NOTE_CARD_BY_TYPE[noteType];
+  const NoteCardComponent = NOTE_CARD_BY_TYPE[editType];
 
   const handleSaveDescription = () => {
     setDescription(editingDescription);
@@ -33,6 +35,7 @@ export default function NoteCard({
 
   const handleCancelEdit = () => {
     setIsEdit(false);
+    setEditType(noteType);
     setEditingDescription(description);
   };
 
@@ -49,7 +52,7 @@ export default function NoteCard({
     type: "text" | "leftImage" | "fullImage",
     positionImage?: "TOP" | "BOTTOM"
   ) => {
-    setNoteType(type);
+    setEditType(type);
     setPositionImage(positionImage || "TOP");
     setIsEditingType(false);
   };
@@ -109,8 +112,9 @@ export default function NoteCard({
           )}
         </>
       )}
-      <NoteCardLayout onClick={() => setIsEdit(true)} isEdit={isEdit}>
+      <NoteCardLayout isEdit={isEdit} gradientBorderType={gradientBorderType}>
         <NoteCardComponent
+          setIsEdit={setIsEdit}
           description={editingDescription}
           image={image || <img src={EmptyImage} alt="empty" />}
           idication={idication}

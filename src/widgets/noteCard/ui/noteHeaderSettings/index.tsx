@@ -4,8 +4,10 @@ import cn from "classnames";
 
 export default function NoteHeaderSettings({
   isImage = false,
+  onClick,
 }: {
   isImage?: boolean;
+  onClick: () => void;
 }) {
   return (
     <div className={styles.settings}>
@@ -13,6 +15,7 @@ export default function NoteHeaderSettings({
         className={cn(styles.settingsButton, {
           [styles.settingsButton_image]: isImage,
         })}
+        onClick={onClick}
       >
         <ThreeDots />
       </button>

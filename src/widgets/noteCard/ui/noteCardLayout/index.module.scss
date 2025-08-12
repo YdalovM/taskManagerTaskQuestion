@@ -3,7 +3,6 @@
   height: 100%;
   background-color: #fff;
   border-radius: 27px;
-  padding: 2px 16px 16px 16px;
   max-width: 360px;
   min-height: 62px;
   min-width: 345px;
@@ -24,6 +23,45 @@
   box-sizing: border-box;
   isolation: isolate;
   cursor: pointer;
+
+  // Градиентная граница
+  &_gradientBorder {
+    border: none;
+    box-shadow: 0 0 0 2px #068dfb;
+    border-radius: 27px;
+    background-color: #fff;
+  }
+
+  // Альтернативный вариант с более сложным градиентом
+  &_gradientBorderComplex {
+    border: none;
+    box-shadow: 0 0 0 0.5px #3fccff;
+    border-radius: 27px;
+    background-color: #fff;
+  }
+
+  // Градиентная граница с псевдоэлементом (лучше работает с border-radius)
+  &_gradientBorderPseudo {
+    position: relative;
+    border-radius: 27px;
+    background-color: #fff;
+    border: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, #068dfb, #3fccff, #ff6b6b, #4ecdc4);
+      border-radius: 27px;
+      z-index: -1;
+      padding: 1px;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+    }
+  }
 
   &_edit {
     padding: 0;

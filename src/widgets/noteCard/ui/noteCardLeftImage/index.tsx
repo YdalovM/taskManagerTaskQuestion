@@ -13,7 +13,8 @@ export default function NoteCardLeftImage({
   idication,
   isEdit,
   setDescription,
-}: INoteCard<"leftImage">) {
+  setIsEdit,
+}: INoteCard<"leftImage"> & { setIsEdit: (isEdit: boolean) => void }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
   const [isOverflowCounter, setIsOverflowCounter] = useState(false);
@@ -34,7 +35,7 @@ export default function NoteCardLeftImage({
         contentRef.current,
         counterRef.current,
         setIsOverflowCounter,
-        210,
+        200,
         2
       );
     }
@@ -42,7 +43,7 @@ export default function NoteCardLeftImage({
 
   return (
     <>
-      {!isEdit && <NoteHeaderSettings />}
+      {!isEdit && <NoteHeaderSettings onClick={() => setIsEdit(true)} />}
       <div
         className={cn(styles.noteCard__leftImage, {
           [styles.noteCard__leftImage_imageTop]: isImageTop,

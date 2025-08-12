@@ -7,9 +7,16 @@
     position: relative;
     gap: 16px;
     padding-bottom: 2px;
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.015em;
+    font-size: 14px;
+    line-height: 19px;
 
     > img {
-      width: calc(100% + 31px);
+      width: 100%;
       aspect-ratio: 2/1.07;
       object-fit: cover;
       border-radius: 8px;
@@ -34,7 +41,6 @@
 
   &_edit {
     margin: 1px;
-    margin-top: 6px;
 
     display: flex;
     align-items: center;
@@ -48,7 +54,7 @@
     border-radius: 12px;
     border: none;
     outline: none;
-    padding: 16px;
+    // padding: 16px;
     width: 100%;
     min-height: 72px;
     border-radius: 26px;
@@ -59,9 +65,11 @@
     width: 100%;
 
     > img {
-      border-top-right-radius: 25px;
-      border-top-left-radius: 25px;
-      width: calc(100% + 32px);
+      border-top-right-radius: 26px;
+      border-top-left-radius: 26px;
+      width: 100%;
+      border: 1px solid #fff;
+      // margin-top: -15.5px;
     }
   }
 
@@ -85,8 +93,8 @@
     margin-top: 1px;
 
     > img {
-      border-bottom-right-radius: 25px;
-      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 26px;
+      border-bottom-left-radius: 26px;
     }
   }
 }
