@@ -35,38 +35,9 @@
   // Альтернативный вариант с более сложным градиентом
   &_gradientBorderComplex {
     border: none;
-    box-shadow: 0 0 0 0.5px #3fccff;
+    box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
     border-radius: 27px;
     background-color: #fff;
-  }
-
-  // Градиентная граница с псевдоэлементом (лучше работает с border-radius)
-  &_gradientBorderPseudo {
-    position: relative;
-    border-radius: 27px;
-    background-color: #fff;
-    border: none;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, #068dfb, #3fccff, #ff6b6b, #4ecdc4);
-      border-radius: 27px;
-      z-index: -1;
-      padding: 1px;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-    }
-  }
-
-  &_edit {
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(90deg, #068dfb 0%, #3fccff 110%);
   }
 
   &__content {

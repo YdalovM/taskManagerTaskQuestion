@@ -10,15 +10,14 @@ export default function NoteHeaderSettings({
   onClick: () => void;
 }) {
   return (
-    <div className={styles.settings}>
-      <button
+    <div className={styles.settings} onClick={onClick}>
+      <span
         className={cn(styles.settingsButton, {
           [styles.settingsButton_image]: isImage,
         })}
-        onClick={onClick}
       >
         <ThreeDots />
-      </button>
+      </span>
     </div>
   );
 }

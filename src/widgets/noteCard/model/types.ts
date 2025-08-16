@@ -42,5 +42,5 @@ export interface INoteCardFull
   description: string;
   type: TNoteCard;
   id: number;
-  gradientBorderType?: "none" | "simple" | "complex" | "pseudo";
+  gradientBorderType?: "none" | "simple" | "complex";
 }

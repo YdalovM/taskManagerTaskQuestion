@@ -16,12 +16,13 @@
     line-height: 19px;
     margin-top: -3px;
     background-color: #fff;
+    padding: 16px;
 
     > img {
-      width: 62px;
-      height: 60px;
-      min-width: 62px;
-      min-height: 60px;
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      min-height: 56px;
       border-radius: 14px;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -41,7 +42,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-color: transparent;
     color: #666;
     font-weight: 400;
@@ -50,7 +50,7 @@
     border-radius: 12px;
     border: none;
     outline: none;
-    padding: 16px;
+    padding: 16px 15px;
     width: 100%;
     height: calc(100% - 2px);
     min-height: 72px;

@@ -21,6 +21,15 @@
   -moz-appearance: none;
   appearance: none;
 
+  font-family: Urbanist;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+
   &::placeholder {
     color: #b4b4b4;
   }

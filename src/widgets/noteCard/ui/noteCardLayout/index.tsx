@@ -2,12 +2,11 @@ import type { PropsWithChildren } from "react";
 import styles from "./index.module.scss";
 import cn from "classnames";
 
-interface NoteCardLayoutProps
-  extends PropsWithChildren<{
-    onClick?: () => void;
-    isEdit?: boolean;
-    gradientBorderType?: "none" | "simple" | "complex" | "pseudo";
-  }> {}
+type NoteCardLayoutProps = PropsWithChildren<{
+  onClick?: () => void;
+  isEdit?: boolean;
+  gradientBorderType?: "none" | "simple" | "complex";
+}>;
 
 export default function NoteCardLayout({
   children,
@@ -23,8 +22,6 @@ export default function NoteCardLayout({
           isEdit && gradientBorderType === "simple",
         [styles.noteCardLayout_gradientBorderComplex]:
           isEdit && gradientBorderType === "complex",
-        [styles.noteCardLayout_gradientBorderPseudo]:
-          isEdit && gradientBorderType === "pseudo",
       })}
       onClick={onClick}
     >

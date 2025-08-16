@@ -51,17 +51,24 @@ export default function NoteCardFullImage({
       >
         {image}
         {isEdit ? (
-          <TextArriaEditNote
-            description={description}
-            setDescription={setDescription || (() => {})}
-            isEdit={isEdit}
-          />
+          <div
+            className={cn(styles.noteCard_edit__description, {
+              [styles.noteCard_edit__description_bottom]: !isImageTop,
+            })}
+          >
+            <TextArriaEditNote
+              description={description}
+              setDescription={setDescription || (() => {})}
+              isEdit={isEdit}
+            />
+          </div>
         ) : (
           <div
             ref={contentRef}
             className={cn(styles.noteCard__fullImageDescription, {
               [styles.noteCard__fullImageDescription_overflow]:
                 isOverflowCounter && isImageTop,
+              [styles.noteCard__fullImage_bottomDescription]: !isImageTop,
             })}
           >
             {description}
