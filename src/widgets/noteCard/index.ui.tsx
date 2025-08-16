@@ -11,45 +11,51 @@ import EmptyImage from "../../assets/emptyImage.avif";
 
 export default function NoteCard({
   description: initialDescription,
-  type,
+  type: initialType,
   image,
   idication,
   positionImage: initialPositionImage = "TOP",
+  gradientBorderType = "none",
 }: INoteCardFull) {
   const [isEdit, setIsEdit] = useState(false);
   const [description, setDescription] = useState(initialDescription);
-  const [noteType, setNoteType] = useState(type);
-  const [isEditingType, setIsEditingType] = useState(false);
-  const [positionImage, setPositionImage] = useState(initialPositionImage);
   const [editingDescription, setEditingDescription] =
     useState(initialDescription);
 
-  const NoteCardComponent = NOTE_CARD_BY_TYPE[noteType];
+  const [type, setType] = useState(initialType);
+  const [editType, setEditType] = useState(type);
+  const [isEditingType, setIsEditingType] = useState(false);
 
-  const handleSaveDescription = () => {
-    setDescription(editingDescription);
+  const [positionImage, setPositionImage] = useState(initialPositionImage);
+
+  const NoteCardComponent = NOTE_CARD_BY_TYPE[editType];
+
+  const handleSave = () => {
     setIsEdit(false);
+    setDescription(editingDescription);
+    setType(editType);
   };
 
   const handleCancelEdit = () => {
     setIsEdit(false);
+    setEditType(type);
     setEditingDescription(description);
   };
 
   const typeIcon = useMemo(() => {
-    if (noteType === "fullImage" && positionImage === "TOP") {
+    if (editType === "fullImage" && positionImage === "TOP") {
       return "fullImageTop";
-    } else if (noteType === "fullImage" && positionImage === "BOTTOM") {
+    } else if (editType === "fullImage" && positionImage === "BOTTOM") {
       return "fullImageBottom";
     }
-    return noteType;
-  }, [noteType, positionImage]);
+    return editType;
+  }, [editType, positionImage]);
 
   const handleChangeType = (
     type: "text" | "leftImage" | "fullImage",
     positionImage?: "TOP" | "BOTTOM"
   ) => {
-    setNoteType(type);
+    setEditType(type);
     setPositionImage(positionImage || "TOP");
     setIsEditingType(false);
   };
@@ -66,14 +72,17 @@ export default function NoteCard({
             />
             <div className={styles.noteCard__editButtonContainer}>
               <button
-                className={styles.noteCard__editButton}
-                onClick={() => setIsEditingType(true)}
+                className={cn(styles.noteCard__editButton, {
+                  [styles.noteCard__editButton__leftImage]:
+                    editType === "leftImage",
+                })}
+                onClick={() => setIsEditingType((prev) => !prev)}
               >
                 <IconByTypeNote type={typeIcon} />
               </button>
               <button
                 className={styles.noteCard__editButtonSave}
-                onClick={handleSaveDescription}
+                onClick={handleSave}
               >
                 <ArrowIcon />
               </button>
@@ -109,8 +118,9 @@ export default function NoteCard({
           )}
         </>
       )}
-      <NoteCardLayout onClick={() => setIsEdit(true)} isEdit={isEdit}>
+      <NoteCardLayout isEdit={isEdit} gradientBorderType={gradientBorderType}>
         <NoteCardComponent
+          setIsEdit={setIsEdit}
           description={editingDescription}
           image={image || <img src={EmptyImage} alt="empty" />}
           idication={idication}

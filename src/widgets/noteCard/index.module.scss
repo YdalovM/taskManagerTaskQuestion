@@ -1,6 +1,14 @@
 .noteCard {
   position: relative;
   max-width: 345px;
+  font-family: Urbanist;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0px;
+  vertical-align: middle;
 
   &_edit {
     margin-top: 50px;
@@ -8,13 +16,12 @@
 
   &__editContainer {
     max-width: 345px;
-    width: 310px;
-
+    width: 314px;
     display: flex;
-    padding: 14px 14px 38px 20px;
+    padding: 14px 14px 38px 16px;
     gap: 10px;
     height: 60%;
-    top: -52px;
+    top: -55px;
     background: white;
     position: absolute;
     border-top-left-radius: 26px;
@@ -40,7 +47,11 @@
     align-items: center;
     justify-content: center;
     border: 0.5px solid #8181816e;
-    padding: 4px;
+    padding: 6px;
+
+    &__leftImage {
+      padding: 6px 3px;
+    }
   }
 
   &__editButtonSave {
@@ -56,18 +67,17 @@
 
   &__editButtonClose {
     cursor: pointer;
-    height: 24px;
+    height: 20px;
+    margin-top: 3px;
   }
 
   &__editModalPanel {
     display: flex;
-    gap: 25px;
-    padding: 10px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: -90px;
+    top: -95px;
     right: 60px;
     border: 1px solid #c6c6c6;
 
@@ -80,31 +90,47 @@
       border: none;
       cursor: pointer;
       width: 24px;
-      height: 24px;
-      border-radius: 6px;
+      padding: 7px 11.5px;
+      transition: 0.3s;
       background: none;
       position: relative;
+      width: 25%;
+
+      &:hover {
+        background-color: #e4e4e4;
+        > svg {
+          scale: 1.05;
+        }
+      }
 
       &:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
         > svg {
           height: 34px;
           width: 34px;
         }
       }
 
+      &:first-child {
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
+      }
+
       > svg {
-        height: 24px;
-        width: 24px;
+        height: 22px;
+        width: 22px;
+        transition: 0.3s;
       }
 
       &:not(:last-child)::after {
         content: "";
         position: absolute;
-        right: -13px;
-        top: -42%;
+        right: 0;
+        top: 0;
         bottom: 0;
         width: 0.5px;
-        height: 185%;
+        height: 100%;
         background-color: #c6c6c6;
       }
     }

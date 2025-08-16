@@ -9,6 +9,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     description: "Drinking water isn't just about quenching ",
     type: NOTE_CARD_TYPE_LIST.TEXT,
     idication: "1",
+    gradientBorderType: "complex",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
+    gradientBorderType: "complex",
   },
   {
     id: 4,
@@ -23,6 +25,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
       "Drinking water isn't just about quenching your thirst. It plays a crucial role in about quenching bbbbbbbb ",
     type: NOTE_CARD_TYPE_LIST.TEXT,
     idication: "100",
+    gradientBorderType: "complex",
   },
   {
     id: 3,
@@ -30,12 +33,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
       "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your ",
     type: NOTE_CARD_TYPE_LIST.TEXT,
     idication: "+10",
-  },
-  {
-    id: 5,
-    description:
-      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your body, and staying properly hydrated is vital ",
-    type: NOTE_CARD_TYPE_LIST.TEXT,
+    gradientBorderType: "complex",
   },
   {
     id: 5,
@@ -44,6 +42,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
+    gradientBorderType: "complex",
   },
   {
     id: 6,
@@ -52,6 +51,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
+    gradientBorderType: "complex",
   },
   {
     id: 7,
@@ -60,6 +60,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
+    gradientBorderType: "complex",
   },
   {
     id: 8,
@@ -68,6 +69,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
     positionImage: "TOP",
+    gradientBorderType: "complex",
   },
   {
     id: 9,
@@ -76,5 +78,6 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
     positionImage: "BOTTOM",
+    gradientBorderType: "complex",
   },
 ];

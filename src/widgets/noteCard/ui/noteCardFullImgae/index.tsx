@@ -14,7 +14,8 @@ export default function NoteCardFullImage({
   positionImage = "TOP",
   isEdit,
   setDescription,
-}: INoteCard<"fullImage">) {
+  setIsEdit,
+}: INoteCard<"fullImage"> & { setIsEdit: (isEdit: boolean) => void }) {
   const counterRef = useRef<HTMLDivElement>(null);
   const isImageTop = positionImage === "TOP";
   const [isOverflowCounter, setIsOverflowCounter] = useState(false);
@@ -27,7 +28,7 @@ export default function NoteCardFullImage({
         contentRef.current,
         counterRef.current,
         setIsOverflowCounter,
-        292,
+        280,
         1
       );
     }
@@ -35,7 +36,12 @@ export default function NoteCardFullImage({
 
   return (
     <>
-      {!isEdit && <NoteHeaderSettings isImage={isImageTop} />}
+      {!isEdit && (
+        <NoteHeaderSettings
+          isImage={isImageTop}
+          onClick={() => setIsEdit(true)}
+        />
+      )}
       <div
         className={cn(styles.noteCard__fullImage, {
           [styles.noteCard__fullImage_bottom]: !isImageTop,
@@ -45,17 +51,24 @@ export default function NoteCardFullImage({
       >
         {image}
         {isEdit ? (
-          <TextArriaEditNote
-            description={description}
-            setDescription={setDescription || (() => {})}
-            isEdit={isEdit}
-          />
+          <div
+            className={cn(styles.noteCard_edit__description, {
+              [styles.noteCard_edit__description_bottom]: !isImageTop,
+            })}
+          >
+            <TextArriaEditNote
+              description={description}
+              setDescription={setDescription || (() => {})}
+              isEdit={isEdit}
+            />
+          </div>
         ) : (
           <div
             ref={contentRef}
             className={cn(styles.noteCard__fullImageDescription, {
               [styles.noteCard__fullImageDescription_overflow]:
                 isOverflowCounter && isImageTop,
+              [styles.noteCard__fullImage_bottomDescription]: !isImageTop,
             })}
           >
             {description}

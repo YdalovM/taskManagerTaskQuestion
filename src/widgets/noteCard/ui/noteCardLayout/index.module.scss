@@ -3,7 +3,6 @@
   height: 100%;
   background-color: #fff;
   border-radius: 27px;
-  padding: 2px 16px 16px 16px;
   max-width: 360px;
   min-height: 62px;
   min-width: 345px;
@@ -25,10 +24,20 @@
   isolation: isolate;
   cursor: pointer;
 
-  &_edit {
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(90deg, #068dfb 0%, #3fccff 110%);
+  // Градиентная граница
+  &_gradientBorder {
+    border: none;
+    box-shadow: 0 0 0 2px #068dfb;
+    border-radius: 27px;
+    background-color: #fff;
+  }
+
+  // Альтернативный вариант с более сложным градиентом
+  &_gradientBorderComplex {
+    border: none;
+    box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
+    border-radius: 27px;
+    background-color: #fff;
   }
 
   &__content {

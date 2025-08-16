@@ -13,7 +13,8 @@ export default function NoteCardText({
   idication,
   isEdit,
   setDescription,
-}: INoteCard<"text">) {
+  setIsEdit,
+}: INoteCard<"text"> & { setIsEdit: (isEdit: boolean) => void }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
   const [isOverflowCounter, setIsOverflowCounter] = useState(false);
@@ -33,15 +34,15 @@ export default function NoteCardText({
         contentRef.current,
         counterRef.current,
         setIsOverflowCounter,
-        295,
+        280,
         1
       );
     }
-  }, [description, idication, isEdit]);
+  }, [description, idication, isEdit, setDescription, setIsEdit]);
 
   return (
     <>
-      {!isEdit && <NoteHeaderSettings />}
+      {!isEdit && <NoteHeaderSettings onClick={() => setIsEdit(true)} />}
       <div
         className={cn(styles.noteCard, {
           [styles.noteCard_textTop]: isTextTop || isOverflowCounter,
