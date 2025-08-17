@@ -98,8 +98,8 @@ export default function NoteCard({
       <NoteCardLayout
         isEdit={isEdit}
         gradientBorderType={gradientBorderType}
-        isSelected={isSelected}
-        isCardSelected={isCardSelected}
+        isSelected={isEdit ? false : isSelected}
+        isCardSelected={isEdit ? false : isCardSelected}
       >
         <NoteCardComponent
           setIsEdit={setIsEdit}
@@ -109,7 +109,8 @@ export default function NoteCard({
           positionImage={isEdit ? editingPositionImage : positionImage}
           isEdit={isEdit}
           setDescription={setEditingDescription}
-          isCardSelected={isCardSelected}
+          isSelected={isEdit ? false : isSelected}
+          isCardSelected={isEdit ? false : isCardSelected}
         />
       </NoteCardLayout>
     </div>

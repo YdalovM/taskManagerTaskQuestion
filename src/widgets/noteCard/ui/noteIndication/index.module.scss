@@ -18,6 +18,7 @@
   font-family: Urbanist;
   font-style: normal;
   line-height: normal;
+  transition: all 0.3s ease;
 
   z-index: 1;
   border: 1px solid #b4b4b4;
@@ -36,5 +37,17 @@
     backdrop-filter: blur(10px);
     border: none;
     color: #fff;
+  }
+
+  &_selected {
+    border: 1px solid #3fccff;
+    color: #3fccff;
+    transition: all 0.3s ease;
+  }
+
+  &_cardSelected {
+    border: 1px solid #3fccff;
+    color: #3fccff;
+    transition: all 0.3s ease;
   }
 }

@@ -15,9 +15,11 @@ export default function NoteCardLeftImage({
   setDescription,
   setIsEdit,
   isCardSelected = false,
+  isSelected = false,
 }: INoteCard<"leftImage"> & {
   setIsEdit: (isEdit: boolean) => void;
   isCardSelected?: boolean;
+  isSelected?: boolean;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
@@ -76,7 +78,12 @@ export default function NoteCardLeftImage({
         )}
 
         {!isEdit && (
-          <NoteIndication counterRef={counterRef} idication={idication || ""} />
+          <NoteIndication
+            counterRef={counterRef}
+            idication={idication || ""}
+            isSelected={isSelected}
+            isCardSelected={isCardSelected}
+          />
         )}
       </div>
     </>

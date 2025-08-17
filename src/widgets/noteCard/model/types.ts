@@ -16,6 +16,8 @@ export interface INoteCardDefault {
   idication?: string;
   isEdit?: boolean;
   setDescription?: (description: string) => void;
+  isSelected?: boolean;
+  isCardSelected?: boolean;
 }
 
 export interface INoteCardLeftImage extends INoteCardDefault {

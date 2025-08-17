@@ -16,9 +16,11 @@ export default function NoteCardFullImage({
   setDescription,
   setIsEdit,
   isCardSelected = false,
+  isSelected = false,
 }: INoteCard<"fullImage"> & {
   setIsEdit: (isEdit: boolean) => void;
   isCardSelected?: boolean;
+  isSelected?: boolean;
 }) {
   const counterRef = useRef<HTMLDivElement>(null);
   const isImageTop = positionImage === "TOP";
@@ -85,6 +87,8 @@ export default function NoteCardFullImage({
           counterRef={counterRef}
           idication={idication || ""}
           isImage={!isImageTop}
+          isSelected={isSelected}
+          isCardSelected={isCardSelected}
         />
       )}
     </>
