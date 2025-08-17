@@ -5,13 +5,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    font-family: "Urbanist", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 0.015em;
     font-size: 14px;
-    line-height: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.6px;
+    font-family: "Urbanist", sans-serif;
 
     > img {
       width: 100%;
@@ -30,7 +28,7 @@
       padding: 8px 16px 16px 16px;
 
       &_overflow {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
     }
   }
@@ -51,6 +49,7 @@
     line-height: 19px;
     background-color: #fff;
     width: 100%;
+    transition: all 0.3s ease;
 
     > img {
       width: 100%;
@@ -59,10 +58,15 @@
       border-top-left-radius: 26px;
     }
 
-    &__description {
+    &__fullImageDescription {
       padding: 8px 16px 16px 16px;
       width: calc(100% - 32px);
       height: 1%;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 19.6px;
+      font-family: "Urbanist", sans-serif;
 
       &_bottom {
         padding: 12px 16px 8px 16px;
@@ -92,5 +96,10 @@
       border-bottom-right-radius: 26px;
       border-bottom-left-radius: 26px;
     }
+  }
+
+  &_cardSelected {
+    background-color: rgba(241, 246, 253, 1);
+    transition: all 0.3s ease;
   }
 }

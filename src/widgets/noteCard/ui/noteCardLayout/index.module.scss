@@ -9,7 +9,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  box-shadow: 0px 1px 8px 0px #0000001a;
+
   max-height: fit-content;
   word-wrap: break-word;
   word-break: break-word;
@@ -23,6 +23,21 @@
   box-sizing: border-box;
   isolation: isolate;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    // Hover эффект теперь управляется через isSelected
+  }
+
+  &_edit {
+    border: none;
+    box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
+    border-radius: 27px;
+    background-color: #fff;
+    &:hover {
+      scale: 1;
+    }
+  }
 
   // Градиентная граница
   &_gradientBorder {
@@ -38,6 +53,25 @@
     box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
     border-radius: 27px;
     background-color: #fff;
+  }
+
+  // Стили для выбранной карточки (имитируют hover)
+  &_selected {
+    border: none;
+    box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
+    border-radius: 27px;
+    background-color: #fff;
+    scale: 1.02;
+  }
+
+  // Блокируем scale для редактируемой карточки
+  &_edit {
+    scale: 1 !important;
+  }
+
+  &_cardSelected {
+    background-color: rgba(241, 246, 253, 1);
+    transition: all 0.3s ease;
   }
 
   &__content {

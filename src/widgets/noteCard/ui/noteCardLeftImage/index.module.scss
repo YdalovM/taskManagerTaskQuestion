@@ -17,6 +17,12 @@
     margin-top: -3px;
     background-color: #fff;
     padding: 16px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.6px;
+    font-family: "Urbanist", sans-serif;
+    transition: all 0.3s ease;
 
     > img {
       width: 56px;
@@ -63,6 +69,11 @@
 
   &__leftImage_imageTop {
     align-items: flex-start;
+  }
+
+  &_cardSelected {
+    background-color: rgba(241, 246, 253, 1);
+    transition: all 0.3s ease;
   }
 }
 

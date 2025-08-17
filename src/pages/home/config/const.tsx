@@ -13,6 +13,15 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
   },
   {
     id: 2,
+    description: "Drinking water isn't just about quenching aaa bbbb",
+    type: NOTE_CARD_TYPE_LIST.FULL_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
+    positionImage: "BOTTOM",
+    gradientBorderType: "complex",
+  },
+  {
+    id: 3,
     description: "quenching your thirst. It plays a cru",
     type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
@@ -28,14 +37,6 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     gradientBorderType: "complex",
   },
   {
-    id: 3,
-    description:
-      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your ",
-    type: NOTE_CARD_TYPE_LIST.TEXT,
-    idication: "+10",
-    gradientBorderType: "complex",
-  },
-  {
     id: 5,
     description:
       "Drinking water isn't just about quenching your thirst. It plays a cru bbb",
@@ -46,24 +47,6 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
   },
   {
     id: 6,
-    description:
-      "Drinking water isn't just about quenching your thirst. It plays a crucial role in  in maintaining the a bbbbbbbbb",
-    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
-    image: <img src={image} alt="NoteCardLeftImage" />,
-    idication: "10",
-    gradientBorderType: "complex",
-  },
-  {
-    id: 7,
-    description:
-      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your body a bbbbbbbbb",
-    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
-    image: <img src={image} alt="NoteCardLeftImage" />,
-    idication: "10",
-    gradientBorderType: "complex",
-  },
-  {
-    id: 8,
     description: "Drinking water isn't just about quenching aaa bbbb",
     type: NOTE_CARD_TYPE_LIST.FULL_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
@@ -72,12 +55,29 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     gradientBorderType: "complex",
   },
   {
-    id: 9,
-    description: "Drinking water isn't just about quenching aaa bbbb",
-    type: NOTE_CARD_TYPE_LIST.FULL_IMAGE,
+    id: 7,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your ",
+    type: NOTE_CARD_TYPE_LIST.TEXT,
+    idication: "+10",
+    gradientBorderType: "complex",
+  },
+  {
+    id: 8,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in  in maintaining the a bbbbbbbbb",
+    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
-    positionImage: "BOTTOM",
+    gradientBorderType: "complex",
+  },
+  {
+    id: 9,
+    description:
+      "Drinking water isn't just about quenching your thirst. It plays a crucial role in maintaining the proper functioning of your body a bbbbbbbbb",
+    type: NOTE_CARD_TYPE_LIST.LEFT_IMAGE,
+    image: <img src={image} alt="NoteCardLeftImage" />,
+    idication: "10",
     gradientBorderType: "complex",
   },
 ];

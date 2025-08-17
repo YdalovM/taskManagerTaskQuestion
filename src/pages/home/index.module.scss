@@ -10,4 +10,20 @@
     flex-direction: column;
     gap: 38px;
   }
+
+  // Скрываем курсор при клавиатурной навигации
+  &_keyboardNavigation {
+    cursor: none;
+
+    * {
+      cursor: none !important;
+    }
+  }
+
+  &_editing {
+    .noteCard:not(.noteCard_edit) {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  }
 }

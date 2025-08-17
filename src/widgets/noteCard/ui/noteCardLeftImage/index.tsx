@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { INoteCard } from "../../model/types";
+import type { INoteCard } from "../../model/";
 import styles from "./index.module.scss";
 import { getResizeOwerlowBlock } from "../../util/getResizeOwerlowBlock";
 import cn from "classnames";
@@ -14,7 +14,11 @@ export default function NoteCardLeftImage({
   isEdit,
   setDescription,
   setIsEdit,
-}: INoteCard<"leftImage"> & { setIsEdit: (isEdit: boolean) => void }) {
+  isCardSelected = false,
+}: INoteCard<"leftImage"> & {
+  setIsEdit: (isEdit: boolean) => void;
+  isCardSelected?: boolean;
+}) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
   const [isOverflowCounter, setIsOverflowCounter] = useState(false);
@@ -48,6 +52,7 @@ export default function NoteCardLeftImage({
         className={cn(styles.noteCard__leftImage, {
           [styles.noteCard__leftImage_imageTop]: isImageTop,
           [styles.noteCard_edit]: isEdit,
+          [styles.noteCard_cardSelected]: isCardSelected,
         })}
       >
         {image}
