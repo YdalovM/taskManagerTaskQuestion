@@ -25,18 +25,11 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  &:hover {
-    // Hover эффект теперь управляется через isSelected
-  }
-
   &_edit {
     border: none;
     box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
     border-radius: 27px;
     background-color: #fff;
-    &:hover {
-      scale: 1;
-    }
   }
 
   // Градиентная граница
@@ -61,12 +54,6 @@
     box-shadow: 0 0 0 1px #3fccff, 0 0 0 1px #34b8ff, 0 0 0 1px #229cfd;
     border-radius: 27px;
     background-color: #fff;
-    scale: 1.02;
-  }
-
-  // Блокируем scale для редактируемой карточки
-  &_edit {
-    scale: 1 !important;
   }
 
   &_cardSelected {
