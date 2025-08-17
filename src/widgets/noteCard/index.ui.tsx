@@ -1,69 +1,51 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./index.module.scss";
 import { NoteCardLayout } from "./ui";
-import { NOTE_CARD_BY_TYPE } from "./config";
-import type { INoteCardFull } from "./model";
-
 import cn from "classnames";
 import EmptyImage from "../../assets/emptyImage.avif";
 import { EditModalPanel } from "./ui/editModalPanel";
-import { getTypeIcon } from "./util/getTypeIcon";
+import { useNoteCard } from "./util";
+import { useNoteCardStore } from "@/shared/stores/noteCardStore";
+import type { NoteCardProps } from "./model/stateTypes";
 
 export default function NoteCard({
-  description: initialDescription,
-  type: initialType,
-  image,
-  idication,
-  positionImage: initialPositionImage = "TOP",
-  gradientBorderType = "none",
-  isSelected = false,
-  isCardSelected = false,
   onCardHover,
   onCardClick,
   cardIndex,
   cardRef,
   id,
   onEditStateChange,
-}: INoteCardFull & {
-  onCardHover?: (index: number) => void;
-  onCardClick?: (cardId: number) => void;
-  cardIndex?: number;
-}) {
-  const [isEdit, setIsEdit] = useState(false);
-  const [description, setDescription] = useState(initialDescription);
-  const [editingDescription, setEditingDescription] =
-    useState(initialDescription);
-  const [type, setType] = useState(initialType);
-  const [editType, setEditType] = useState(type);
-  const [isEditingType, setIsEditingType] = useState(false);
-  const [positionImage, setPositionImage] = useState(initialPositionImage);
-  const [editingPositionImage, setEditingPositionImage] =
-    useState(initialPositionImage);
+}: NoteCardProps) {
+  const {
+    isEdit,
+    description,
+    editingDescription,
+    type,
+    editingType,
+    image,
+    idication,
+    positionImage,
+    gradientBorderType,
+    editingPositionImage,
+    isSelected,
+    isCardSelected,
+    isEditingType,
+    NoteCardComponent,
+    typeIcon,
+    handleMouseEnter,
+    handleClick,
+    setIsEdit,
+    setDescription,
+    setEditingDescription,
+    setType,
+    setEditingType,
+    setEditingPositionImage,
+    setIsEditingType,
+  } = useNoteCard(id);
 
-  const NoteCardComponent = NOTE_CARD_BY_TYPE[editType];
-
-  const typeIcon = getTypeIcon(editType, editingPositionImage);
-
-  const handleMouseEnter = () => {
-    // Блокируем hover если карточка в режиме редактирования
-    if (isEdit) return;
-
-    if (onCardHover && cardIndex !== undefined) {
-      onCardHover(cardIndex);
-    }
-  };
-
-  const handleClick = () => {
-    // Разрешаем клик если карточка в режиме редактирования (для закрытия редактирования)
-    if (onCardClick && id !== undefined) {
-      onCardClick(id);
-    }
-  };
-
-  // Отслеживаем изменения состояния редактирования
   useEffect(() => {
     if (onEditStateChange) {
-      onEditStateChange(isEdit);
+      onEditStateChange(isEdit || false);
     }
   }, [isEdit, onEditStateChange]);
 
@@ -71,28 +53,31 @@ export default function NoteCard({
     <div
       ref={cardRef}
       className={cn(styles.noteCard, { [styles.noteCard_edit]: isEdit })}
-      onMouseEnter={handleMouseEnter}
-      onClick={handleClick}
+      onMouseEnter={() => handleMouseEnter(onCardHover, cardIndex)}
+      onClick={() => handleClick(onCardClick)}
     >
-      {/* TODO: блок для тестов первого задания, открывается по клику на карточку*/}
       {isEdit && (
         <EditModalPanel
           setDescription={setDescription}
           setIsEdit={setIsEdit}
           setType={setType}
-          setEditType={setEditType}
+          setEditType={setEditingType}
           setEditingDescription={setEditingDescription}
           type={type}
           editingDescription={editingDescription}
-          editType={editType}
+          editType={editingType}
           setIsEditingType={setIsEditingType}
           typeIcon={typeIcon}
           isEditingType={isEditingType}
           setPositionImage={setEditingPositionImage}
           positionImage={editingPositionImage}
           description={description}
-          setPositionImageFinal={setPositionImage}
-          positionImageFinal={positionImage}
+          setPositionImageFinal={(newPositionImage) => {
+            // Обновляем финальное значение positionImage в store
+            const { setCardPositionImage } = useNoteCardStore.getState();
+            setCardPositionImage(id, newPositionImage);
+          }}
+          positionImageFinal={positionImage || "TOP"}
         />
       )}
       <NoteCardLayout
@@ -105,8 +90,8 @@ export default function NoteCard({
           setIsEdit={setIsEdit}
           description={isEdit ? editingDescription : description}
           image={image || <img src={EmptyImage} alt="empty" />}
-          idication={idication}
-          positionImage={isEdit ? editingPositionImage : positionImage}
+          idication={String(idication || "")}
+          positionImage={isEdit ? editingPositionImage : positionImage || "TOP"}
           isEdit={isEdit}
           setDescription={setEditingDescription}
           isSelected={isEdit ? false : isSelected}

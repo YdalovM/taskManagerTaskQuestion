@@ -1,7 +1,7 @@
-import { NOTE_CARD_TYPE_LIST } from "../../../widgets/noteCard/config/const";
-import type { INoteCardFull } from "../../../widgets/noteCard/model";
+import { NOTE_CARD_TYPE_LIST } from "@/widgets/noteCard/config/const";
+import type { INoteCardFull } from "@/widgets/noteCard/model";
 
-import image from "../../../assets/kotiki-na-avu-240423-07.jpg";
+import image from "@/assets/kotiki-na-avu-240423-07.jpg";
 
 export const NOTE_CARD_MOCK: INoteCardFull[] = [
   {
@@ -10,6 +10,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.TEXT,
     idication: "1",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     idication: "10",
     positionImage: "BOTTOM",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.TEXT,
     idication: "100",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 6,
@@ -53,6 +58,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     idication: "10",
     positionImage: "TOP",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     type: NOTE_CARD_TYPE_LIST.TEXT,
     idication: "+10",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
     gradientBorderType: "complex",
+    isEdit: false,
   },
   {
     id: 9,
@@ -79,5 +87,6 @@ export const NOTE_CARD_MOCK: INoteCardFull[] = [
     image: <img src={image} alt="NoteCardLeftImage" />,
     idication: "10",
     gradientBorderType: "complex",
+    isEdit: false,
   },
 ];
