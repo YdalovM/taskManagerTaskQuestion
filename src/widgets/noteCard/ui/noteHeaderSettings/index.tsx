@@ -9,8 +9,13 @@ export default function NoteHeaderSettings({
   isImage?: boolean;
   onClick: () => void;
 }) {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    onClick();
+  };
+
   return (
-    <div className={styles.settings} onClick={onClick}>
+    <div className={styles.settings} onClick={handleClick}>
       <span
         className={cn(styles.settingsButton, {
           [styles.settingsButton_image]: isImage,

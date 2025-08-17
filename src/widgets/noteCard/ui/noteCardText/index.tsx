@@ -15,9 +15,11 @@ export default function NoteCardText({
   setDescription,
   setIsEdit,
   isCardSelected = false,
+  isSelected = false,
 }: INoteCard<"text"> & {
   setIsEdit: (isEdit: boolean) => void;
   isCardSelected?: boolean;
+  isSelected?: boolean;
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
@@ -68,7 +70,12 @@ export default function NoteCardText({
         )}
 
         {!isEdit && (
-          <NoteIndication counterRef={counterRef} idication={idication || ""} />
+          <NoteIndication
+            counterRef={counterRef}
+            idication={idication || ""}
+            isSelected={isSelected}
+            isCardSelected={isCardSelected}
+          />
         )}
       </div>
     </>
