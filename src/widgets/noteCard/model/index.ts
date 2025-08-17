@@ -6,4 +6,7 @@ export type {
   NoteCardLayoutProps,
   INoteCard,
   ITextArriaEditNoteProps,
+  INoteCardProps,
 } from "./types";
+
+export * from "./stateTypes";
