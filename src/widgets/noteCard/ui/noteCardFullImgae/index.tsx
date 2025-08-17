@@ -15,7 +15,11 @@ export default function NoteCardFullImage({
   isEdit,
   setDescription,
   setIsEdit,
-}: INoteCard<"fullImage"> & { setIsEdit: (isEdit: boolean) => void }) {
+  isCardSelected = false,
+}: INoteCard<"fullImage"> & {
+  setIsEdit: (isEdit: boolean) => void;
+  isCardSelected?: boolean;
+}) {
   const counterRef = useRef<HTMLDivElement>(null);
   const isImageTop = positionImage === "TOP";
   const [isOverflowCounter, setIsOverflowCounter] = useState(false);
@@ -47,13 +51,14 @@ export default function NoteCardFullImage({
           [styles.noteCard__fullImage_bottom]: !isImageTop,
           [styles.noteCard_edit]: isEdit,
           [styles.noteCard__fullImageBottom_edit]: isEdit && !isImageTop,
+          [styles.noteCard_cardSelected]: isCardSelected,
         })}
       >
         {image}
         {isEdit ? (
           <div
-            className={cn(styles.noteCard_edit__description, {
-              [styles.noteCard_edit__description_bottom]: !isImageTop,
+            className={cn(styles.noteCard__fullImageDescription, {
+              [styles.noteCard__fullImage_bottomDescription]: !isImageTop,
             })}
           >
             <TextArriaEditNote

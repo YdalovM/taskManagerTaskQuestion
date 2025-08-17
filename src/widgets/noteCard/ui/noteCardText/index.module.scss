@@ -7,6 +7,7 @@
   font-weight: 400;
   line-height: 19.6px;
   font-family: "Urbanist", sans-serif;
+  transition: all 0.3s ease;
 
   &_overflow {
     margin-bottom: 19px;
@@ -46,5 +47,10 @@
     line-height: 19px;
     background-color: #fff;
     margin-bottom: 4px;
+  }
+
+  &_cardSelected {
+    background-color: rgba(241, 246, 253, 1);
+    transition: all 0.3s ease;
   }
 }

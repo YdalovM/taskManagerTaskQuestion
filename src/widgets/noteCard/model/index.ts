@@ -1,1 +1,9 @@
-export type { INoteCardFull, TNoteCard, TNoteCardType } from "./types";
+export type {
+  INoteCardFull,
+  TNoteCard,
+  TNoteCardType,
+  IEditModalPanelProps,
+  NoteCardLayoutProps,
+  INoteCard,
+  ITextArriaEditNoteProps,
+} from "./types";
